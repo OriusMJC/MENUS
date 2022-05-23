@@ -27,12 +27,31 @@ export function getRecipesByName(name){
         })
     }
 }
-export function getRecipesByName(id){
+export function getRecipesById(id){
     return async function(dispatch){
         const resu =  await axios(`http://localhost:3001/recipes/${id}`)
         dispatch({
             type: "GET_RECIPES_BY_ID",
             payload: resu.data
         })
+    }
+}
+
+export function filterByDiets(payload){
+    return {
+        type: 'FILTER_BY_DIETS',
+        payload
+    }
+}
+export function orderPerAlfa(payload){
+    return {
+        type: 'ORDEN_ALFA',
+        payload
+    }
+}
+export function orderPerPunt(payload){
+    return {
+        type: 'ORDEN_PUNT',
+        payload
     }
 }
