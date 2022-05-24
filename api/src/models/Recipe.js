@@ -17,6 +17,9 @@ module.exports = (sequelize) => {
     image:{
       type: DataTypes.STRING 
     },
+    tipoDePlato:{
+      type: DataTypes.ARRAY(DataTypes.STRING)
+    },
     resumenDePlato:{
       type: DataTypes.STRING,
       allowNull: false

@@ -14,10 +14,8 @@ const getAllRecipesApi = async()=>{
             id: r.id,
             name: r.title,
             image: r.image,
-            resumenDePlato: r.summary,
             puntuacion: r.weightWatcherSmartPoints,
             nivelSalubre: r.healthScore,
-            pasos: r.analyzedInstructions[0] && r.analyzedInstructions[0].steps.map(p=> p.step),
             diets: r.diets
         }
     })
@@ -71,11 +69,12 @@ router.get('/:idReceta',async(req,res,next)=>{
                 id: resuApi.data.id,
                 name: resuApi.data.title,
                 image: resuApi.data.image,
+                tipoDePlato: resuApi.data.dishTypes,
                 resumenDePlato: resuApi.data.summary,
                 puntuacion: resuApi.data.weightWatcherSmartPoints,
                 nivelSalubre: resuApi.data.healthScore,
                 pasos: resuApi.data.analyzedInstructions[0] && resuApi.data.analyzedInstructions[0].steps.map(p=> p.step),
-                dietas: resuApi.data.diets
+                diets: resuApi.data.diets
             }
             return res.json(receta)
         }

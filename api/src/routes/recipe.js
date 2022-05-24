@@ -4,7 +4,6 @@ const {Recipe,Diet} = require('../db')
 
 const router = Router();
 
-// const apiKey= '2cec9b9be9144bf9ae5eaa163c98fa14'
 
 
 router.post('/',async(req,res,next)=>{

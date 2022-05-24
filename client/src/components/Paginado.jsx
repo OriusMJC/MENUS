@@ -1,7 +1,7 @@
 import {useState} from 'react'
-import Card from "./Card";
+import Cards from "./Cards";
 
-export default function Paginado({recipes,cantRecipe}){
+export default function Paginado({recipes,cantRecipe,refresh}){
     
     const cantPages = Math.round(recipes.length / cantRecipe);
     const [page,setPage] = useState(1)
@@ -18,10 +18,10 @@ export default function Paginado({recipes,cantRecipe}){
     return(
         <div>
            {
-                recipePerPage.length?
+                refresh && recipePerPage.length?
                 recipePerPage.map(r=>{
                     return(
-                    <Card id={r.id} image={r.image} name={r.name} puntuacion={r.puntuacion} />)
+                    <Cards id={r.id} image={r.image} name={r.name} puntuacion={r.puntuacion} />)
                 })
                 :
                 <h1>Cargando</h1>

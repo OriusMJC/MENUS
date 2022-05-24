@@ -6,11 +6,12 @@ import Paginado from './Paginado'
 
 export default function Home(){
     const dispatch = useDispatch()
-    const allRecipes = useSelector((store)=> store.allRecipes)
-    let recipes = useSelector((store)=> store.recipes)
+    // const allRecipes = useSelector((store)=> store.allRecipes)
+    const recipes = useSelector((store)=> store.recipes)
     const diets = useSelector((store)=> store.diets)
     const [cantRecipePage, setCantRecipePage] = useState(9)
     const [refresh, setRefresh] = useState(1)
+    console.log('buscando error',recipes[0])
     useEffect(()=>{
         dispatch(getAllRecipes())
         dispatch(getAllDiets())
