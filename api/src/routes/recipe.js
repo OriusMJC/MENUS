@@ -7,10 +7,10 @@ const router = Router();
 
 
 router.post('/',async(req,res,next)=>{
-    const {name,image,resumenDePlato,puntuacion,nivelSalubre,pasos,diets} = req.body;
+    const {name,image,tipoDePlato,resumenDePlato,nivelSalubre,pasos,diets} = req.body;
     try {
-        await Recipe.create({name,image,resumenDePlato,puntuacion,nivelSalubre,pasos})
-        if(diets.length){
+        await Recipe.create({name,image,tipoDePlato,resumenDePlato,nivelSalubre,pasos})
+        if(diets && diets.length && typeof diets === 'object'){
             const newReci = await Recipe.findOne({where: {name}});
             diets.forEach(async d=>{
                 await newReci.addDiet(d)

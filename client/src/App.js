@@ -3,7 +3,7 @@ import {Routes,Route} from 'react-router-dom'
 import LandingPage from './components/LandingPage';
 import Home from './components/Home';
 import RecipeDetails from './components/RecipeDetails';
-import RecipeCreate from './components/RecpieCreate'
+import CreateRecipe from './components/CreateRecipe'
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Route exact path='/' element={<LandingPage/>}/>
       <Route path='/home' element={<Home/>}/>
       <Route path='/recipe/:idRecipe' element={<RecipeDetails/>}/>
-      <Route path='/recipecreate' element={<RecipeCreate/>}/>
+      <Route path='/recipecreate' element={<CreateRecipe/>}/>
     </Routes>
   );
 }

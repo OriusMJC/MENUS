@@ -14,7 +14,6 @@ const getAllRecipesApi = async()=>{
             id: r.id,
             name: r.title,
             image: r.image,
-            puntuacion: r.weightWatcherSmartPoints,
             nivelSalubre: r.healthScore,
             diets: r.diets
         }
@@ -29,7 +28,8 @@ const getAllRecipesDb = async()=>{
             attributes: ['id','name'],
             through:{
                 attributes: []
-            },nest: true
+            }
+            // ,nest: true
         }
     })
     return recetas
@@ -38,7 +38,7 @@ const getAllRecipesDb = async()=>{
 const getAllRecipes = async()=>{
     const rec1 = await getAllRecipesApi()
     const rec2 = await getAllRecipesDb()
-    const allRecipes = rec1.concat(rec2)
+    const allRecipes = rec2.concat(rec1)
     return allRecipes;
 }
 
@@ -63,25 +63,27 @@ router.get('/', async(req,res,next)=>{
 router.get('/:idReceta',async(req,res,next)=>{
     const id = req.params.idReceta
     try {
-        const resuApi = await axios(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`)
-        if(resuApi){
-            const receta = {
-                id: resuApi.data.id,
-                name: resuApi.data.title,
-                image: resuApi.data.image,
-                tipoDePlato: resuApi.data.dishTypes,
-                resumenDePlato: resuApi.data.summary,
-                puntuacion: resuApi.data.weightWatcherSmartPoints,
-                nivelSalubre: resuApi.data.healthScore,
-                pasos: resuApi.data.analyzedInstructions[0] && resuApi.data.analyzedInstructions[0].steps.map(p=> p.step),
-                diets: resuApi.data.diets
+        if(id.length < 15){
+            const resuApi = await axios(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`)
+            if(resuApi){
+                const receta = {
+                    id: resuApi.data.id,
+                    name: resuApi.data.title,
+                    image: resuApi.data.image,
+                    tipoDePlato: resuApi.data.dishTypes,
+                    resumenDePlato: resuApi.data.summary,
+                    nivelSalubre: resuApi.data.healthScore,
+                    pasos: resuApi.data.analyzedInstructions[0] && resuApi.data.analyzedInstructions[0].steps.map(p=> p.step),
+                    diets: resuApi.data.diets
+                }
+                return res.json(receta)
             }
-            return res.json(receta)
         }
-        const resuDb = Recipe.findByPk(id)
+        let resuDb = await Recipe.findByPk(id)
         if(resuDb){
-            const dietsDb = await resuDb.getDiets().map(d=> d.dataValues.name)
-            return res.json({...resuDb.dataValues, dietsDb})
+            let dietsDb = await resuDb.getDiets()
+            let diets = dietsDb.map(d=> d.dataValues.name)
+            return res.json({...resuDb.dataValues, diets})
         }
     } catch (error) {
         next(error)

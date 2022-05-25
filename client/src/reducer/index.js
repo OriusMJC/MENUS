@@ -11,7 +11,6 @@ function orderMayMen(array,prop){
         if(a[prop] > b[prop])return 1;
         return 0
       })
-      console.log(newArray[0])
     return newArray
 }
 function orderMenMay(array,prop){
@@ -20,7 +19,6 @@ function orderMenMay(array,prop){
         if(a[prop] > b[prop])return -1;
         return 0
       })
-    console.log(newArray[0])
     return newArray
 }
 
@@ -30,7 +28,7 @@ export default function rootReducer(state = initialState,action){
             return {
                 ...state,
                 allRecipes: action.payload,
-                recipes: action.payload
+                recipes: [...action.payload]
             }
         case 'GET_ALL_DIETS':
             return {
@@ -61,20 +59,32 @@ export default function rootReducer(state = initialState,action){
         case 'ORDEN_PUNT':
             let newRecipesByPunt;
              if(action.payload === 'defect'){
-                newRecipesByPunt = [...state.allRecipes]
+                newRecipesByPunt = state.allRecipes.map(recipe=>{
+                    let rec = []
+                    state.recipes.map(re=>{
+                        if(recipe.name == re.name) rec.push(re)
+                    })
+                    return rec
+                })
             }else if(action.payload === 'descen'){
-                newRecipesByPunt = orderMayMen(state.recipes,'puntuacion')
+                newRecipesByPunt = orderMayMen(state.recipes,'nivelSalubre')
             }else{
-                newRecipesByPunt = orderMenMay(state.recipes,'puntuacion')
+                newRecipesByPunt = orderMenMay(state.recipes,'nivelSalubre')
              }
             return{
                 ...state,
-                recipes: newRecipesByPunt
+                recipes: newRecipesByPunt.flat(2)
             }
         case 'ORDEN_ALFA':
             let newRecipesByAlfa;
             if(action.payload === 'defect'){
-                newRecipesByAlfa = [...state.allRecipes]
+                newRecipesByAlfa = state.allRecipes.map(recipe=>{
+                    let rec = []
+                    state.recipes.map(re=>{
+                        if(recipe.name == re.name) rec.push(re)
+                    })
+                    return rec
+                })
             }else if(action.payload === 'descen'){
                 newRecipesByAlfa = orderMenMay(state.recipes,'name')
             }else{
@@ -82,7 +92,12 @@ export default function rootReducer(state = initialState,action){
              }
             return{
                 ...state,
-                recipes: newRecipesByAlfa
+                recipes: newRecipesByAlfa.flat(2)
+            }
+        case 'CREATE_RECIPE':
+            return{
+                ...state,
+                allRecipes: [action.payload,...state.allRecipes]
             }
         default: 
             return state

@@ -55,3 +55,8 @@ export function orderPerPunt(payload){
         payload
     }
 }
+export function createRecipe(payload){
+    return async function(dispatch){
+        await axios.post('http://localhost:3001/recipe',payload)
+    }
+}

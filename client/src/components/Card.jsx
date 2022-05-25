@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom"
 
 export default function Card({recipe}){
-    console.log(recipe)
     return(
         <div>
             <Link to='/home'>
@@ -9,11 +8,10 @@ export default function Card({recipe}){
             </Link>
             <h1>{recipe.name}</h1>
             <img src={recipe.image} alt={recipe.name}/>
-            <h3>Tipo de plato: {recipe.tipoDePlato?.join(', ')}.</h3>
+            <h3>Tipo de plato: {recipe.tipoDePlato}.</h3>
             <h3>Dieta/s: {recipe.diets?.join(', ')}.</h3>
             <h3>Resumen del plato:</h3>
             <p>{recipe.resumenDePlato?.replace(/<[^>]+>/g, '')}</p>
-            <p>Puntuacion: {recipe.puntuacion}</p>
             <p>Nivel salubre: {recipe.nivelSalubre}</p>
             <p>Pasos para la preparación:</p>
             <ol>

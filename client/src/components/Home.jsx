@@ -11,7 +11,6 @@ export default function Home(){
     const diets = useSelector((store)=> store.diets)
     const [cantRecipePage, setCantRecipePage] = useState(9)
     const [refresh, setRefresh] = useState(1)
-    console.log('buscando error',recipes[0])
     useEffect(()=>{
         dispatch(getAllRecipes())
         dispatch(getAllDiets())
@@ -66,7 +65,7 @@ export default function Home(){
                 <option value='ascen'>Ascendente</option>
                 <option value='descen'>Descendente</option>
             </select>
-            <label>Por orden de puntuación</label>
+            <label>Orden por nivel salubre</label>
             <select onChange={(e)=>{ordenPunt(e)}}>
                 <option value='defect'>Por defecto</option>
                 <option value='ascen'>Ascendente</option>

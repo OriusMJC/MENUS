@@ -21,7 +21,7 @@ export default function Paginado({recipes,cantRecipe,refresh}){
                 refresh && recipePerPage.length?
                 recipePerPage.map(r=>{
                     return(
-                    <Cards id={r.id} image={r.image} name={r.name} puntuacion={r.puntuacion} />)
+                    <Cards id={r.id} image={r.image} name={r.name} nivelSalubre={r.nivelSalubre} />)
                 })
                 :
                 <h1>Cargando</h1>

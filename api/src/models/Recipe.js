@@ -7,7 +7,6 @@ module.exports = (sequelize) => {
     id:{
       type: DataTypes.UUID,
       primaryKey: true,
-      allowNull: false,
       defaultValue: DataTypes.UUIDV4
     },
     name: {
@@ -15,20 +14,17 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     image:{
-      type: DataTypes.STRING 
+      type: DataTypes.STRING(3000) 
     },
     tipoDePlato:{
-      type: DataTypes.ARRAY(DataTypes.STRING)
+      type: DataTypes.STRING
     },
     resumenDePlato:{
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    puntuacion: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING
     },
     nivelSalubre: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      allowNull: false
     },
     pasos: {
       type: DataTypes.ARRAY(DataTypes.STRING)
