@@ -29,7 +29,6 @@ const getAllRecipesDb = async()=>{
             through:{
                 attributes: []
             }
-            // ,nest: true
         }
     })
     return recetas
@@ -44,11 +43,10 @@ const getAllRecipes = async()=>{
 
 router.get('/', async(req,res,next)=>{
     const {name} = req.query;
-    let len = name && name.length
     try {
         const allRecipes = await getAllRecipes()
         if(name){
-            const recetas = allRecipes.filter(r=> r.name.toLowerCase().includes(name.toLowerCase().slice(2,len-1)))
+            const recetas = allRecipes.filter(r=> r.name.toLowerCase().includes(name.toLowerCase()))
             if(recetas.length) return res.json(recetas)
             else return res.send(`No se ha podido encontrar una receta con el nombre ${name}`)
         }

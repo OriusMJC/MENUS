@@ -1,11 +1,13 @@
 import {Link} from 'react-router-dom'
+import './Style/LandingPage.css'
 
 export default function LandingPage(){
     return(
-        <div>
-            <h1>PI-Food</h1>
+        <div id='lp-container'>
+            <h3>BIENVENIDO</h3>
+            <h1>MENU'S</h1>
             <Link to='/home'>
-                <button>Home</button>
+                <button>VER MENÚ</button>
             </Link>
         </div>
         )

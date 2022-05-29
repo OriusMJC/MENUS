@@ -1,0 +1,46 @@
+:root{
+    --color-primary: #fff;
+    --color-secundary: #000;
+    --color-gray-dark: #737373;
+    --color-gray-medium: #545454;
+    --color-gray-light: #cccdcd;
+    --font-primary: 'Montserrat', sans-serif;
+}
+
+#lp-container{
+    background-color: var(--color-secundary);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+#lp-container h3{
+    color: var(--color-primary);
+    font-size: 1.5em;
+    margin: -60px;
+}
+#lp-container h1{
+    color: var(--color-primary);
+    font-size: 15em;
+    margin: 0px;
+}
+#lp-container button{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 1.3em;
+    margin: 0px;
+    border: none;
+    border-radius: 50px;
+    height: 60px;
+    width: 150px;
+    transition: .1s;
+}
+#lp-container button:hover{
+    font-size: 1.32em;
+    margin-bottom: -1px;
+    height: 62px;
+    width: 152px;
+}

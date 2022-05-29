@@ -1,0 +1,53 @@
+:root{
+    --color-primary: #fff;
+    --color-secundary: #000;
+    --color-gray-dark: #737373;
+    --color-gray-medium: #545454;
+    --color-gray-light: #cccdcd;
+    --font-primary: 'Montserrat', sans-serif;
+}
+
+.cont-searchbar{
+    height: 100%;
+    width: 550px;
+    margin: 0px -150px;
+}
+
+.cont-searchbar form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 550px;
+}
+.cont-searchbar form button{
+    margin-right: 20px;
+    height: 50px;
+    width: 50px;
+    border: none;
+    border-radius: 50%;
+}
+.cont-searchbar form button img{
+    margin-top: 2px;
+    height: 40%;
+    width: 50%;
+}
+.cont-searchbar form input{
+    outline: none;
+    font-size: 1em;
+    background-color: var(--color-secundary);
+    padding-left: 0px;
+    height: 35px;
+    width: 0px;
+    border: none;
+    border-radius: 50px;
+    transition: 1s;
+}
+.cont-searchbar:hover form input{
+    background-color: var(--color-primary);
+    padding-left: 20px;
+    height: 35px;
+    width: 250px;
+    border: none;
+    border-radius: 50px;
+}

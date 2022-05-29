@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,400;1,500&family=Montserrat:wght@400;700&display=swap');
+
+:root{
+    --color-primary: #fff;
+    --color-secundary: #000;
+    --color-gray-dark: #737373;
+    --color-gray-medium: #545454;
+    --color-gray-light: #cccdcd;
+    --font-primary: 'Montserrat', sans-serif;
+}
+
+body{
+    font-family: var(--font-primary);
+}
+
+/* ----HOME---- */
+.home-container{
+    background-color: var(--color-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+            /* ---HOME NAV */
+.home-nav{
+    background-image: url('../img/papel_negro.png');
+    background-position: bottom;
+    width: 100%;
+    height: 350px;
+}
+
+.home-navbar-up{
+    color: var(--color-primary);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 40%;
+    width: 100%;
+}
+.home-navbar-up h1{
+    font-size: 4.5em;
+}
+.home-navbar-up a button{
+    background-color: var(--color-primary);
+    padding: 0;
+    height: 40px;
+    width: 250px;
+    border-radius: 50px;
+    border: none;
+    transition: .3s;
+}
+.home-navbar-up a button:hover{
+    font-size: .85em;
+    height: 42px;
+    width: 252px;
+    margin-left: -2px;
+}
+.home-navbar-up a button h1{
+    font-size: 1.35em;
+}
+
+.home-navbar-d{
+    display: flex;
+    justify-content: space-evenly;
+    height: 60%;
+    width: 100%;
+}
+.home-navbar-d select{
+    color:var(--color-primary);
+    background-color: var(--color-secundary);
+    font-size: .87em;
+    padding-left: 30px;
+    border: 3px solid var(--color-primary);
+    border-radius: 15px;
+    height: 45px;
+    width: 100%;
+}
+/* .home-navbar-d select:selected{
+    border-radius: 0px 0px 15px 15px ;  
+} */
+.home-navbar-d button{
+    font-size: .5em;
+    border: none;
+    border-radius: 10px;
+    height: 50px;
+    width: 300px;
+    margin: 30px -25px;
+    transition: .3s;
+}
+.home-navbar-d button:hover{
+    padding-bottom: 2px;
+    font-size: .51em;
+    height: 52px;
+    width: 304px;
+    margin: 29px -27px;
+}
+.home-navbar-d div{
+    color: var(--color-primary);
+    font-size: 1.1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+}
+.home-navbar-d div label{
+    height: 30px;
+}

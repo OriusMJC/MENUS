@@ -1,0 +1,71 @@
+/* .cards-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:red;
+    margin: 10px;
+    height: 300px;
+    width: 350px;
+} */
+
+:root{
+    --color-primary: #fff;
+    --color-secundary: #000;
+    --color-gray-dark: #737373;
+    --color-gray-medium: #545454;
+    --color-gray-light: #cccdcd;
+    --font-primary: 'Montserrat', sans-serif;
+}
+
+.cards-container a{
+    text-decoration: none;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px;
+    height: 350px;
+    width: 320px;
+}
+/* .cards-container a:link,a:visited,a:active{
+    text-decoration: none;
+} */
+.cards-container a p{
+    color: var(--color-gray-medium);
+    font-size: 1.5em;
+    margin-top: 0px;
+    margin-left: -100px;
+    height: 5%;
+}
+.cards-container a h2{
+
+    margin: 5px;
+}
+
+.c-c-img{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 95%;
+    outline: 3px solid #000;
+    border-radius: 10px;
+}
+.c-c-img div{
+    font-size: 1em;
+    color: transparent;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 0%;
+    border-radius: 10px;
+    padding: 10px;
+    transition: .5s;
+}
+.cards-container:hover a .c-c-img div{
+    color: var(--color-primary);
+    background-color: rgba(0,0,0,.58);
+    height: 94%;
+}

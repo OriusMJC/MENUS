@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom'
 import { useDispatch,useSelector } from 'react-redux'
 import { getAllRecipes, getAllDiets, orderPerAlfa, orderPerPunt, filterByDiets} from '../actions'
 import Paginado from './Paginado'
+import SearchBar from './SearchBar'
+import './Style/Home.css'
 
 export default function Home(){
     const dispatch = useDispatch()
@@ -40,45 +42,64 @@ export default function Home(){
         setCantRecipePage(Number(e.target.value))
     }
     return(
-        <div>
-            <h1>PI-FOOD</h1>
-            <Link to='/recipecreate'>PI-FOOD</Link>
-            <button onClick={(e)=>{handleClick(e)}}>
-                Recargar las recetas.
-            </button>
-            <label>Por tipo de dieta</label>
-            <select onChange={(e)=>{filterDiet(e)}}>
-                <option value='all'>Todas</option>
-                {
-                    diets&&diets.map(d=>{
-                        return(
-                            <>
-                                <option value={d.name} >{d.name}</option>
-                            </>
-                        )
-                    })
-                }
-            </select>
-            <label>Por orden alfabético</label>
-            <select onChange={(e)=>{ordenAlfa(e)}}>
-                <option value='defect'>Por defecto</option>
-                <option value='ascen'>Ascendente</option>
-                <option value='descen'>Descendente</option>
-            </select>
-            <label>Orden por nivel salubre</label>
-            <select onChange={(e)=>{ordenPunt(e)}}>
-                <option value='defect'>Por defecto</option>
-                <option value='ascen'>Ascendente</option>
-                <option value='descen'>Descendente</option>
-            </select>
-            <label>Recetas por página</label>
-            <select onChange={(e)=>{changeCantRecipePage(e)}}>
-                <option value='9'>9</option>
-                <option value='12'>12</option>
-                <option value='24'>24</option>
-                <option value='36'>36</option>
-                <option value='100'>Todas</option>
-            </select>
+        <div className='home-container'>
+            <div className='home-nav'>
+                <div className='home-navbar-up'>
+                    <SearchBar/>
+                    <h1>MENU'S</h1>
+                    <Link to='/recipecreate'>
+                        <button>
+                            <h1>CREAR RECETA</h1>
+                        </button>
+                    </Link>
+                </div>
+                <div className='home-navbar-d'>
+                    <button onClick={(e)=>{handleClick(e)}}>
+                        <h1>RECARGAR TODAS LAS RECETAS</h1>
+                    </button>
+                    <div>
+                        <label>RECETAS POR PÁGINA</label>
+                        <select onChange={(e)=>{changeCantRecipePage(e)}}>
+                            <option value='9'>9</option>
+                            <option value='12'>12</option>
+                            <option value='24'>24</option>
+                            <option value='36'>36</option>
+                            <option value='100'>Todas</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>TIPO DE DIETA</label>
+                        <select onChange={(e)=>{filterDiet(e)}}>
+                            <option value='all'>TODAS</option>
+                            {
+                                diets&&diets.map(d=>{
+                                    return(
+                                        <>
+                                            <option value={d.name} >{d.name.toUpperCase()}</option>
+                                        </>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div>
+                        <label>ORDEN ALFABÉTICO</label>
+                        <select onChange={(e)=>{ordenAlfa(e)}}>
+                            <option value='defect'>POR DEFECTO</option>
+                            <option value='ascen'>ASCENDENTE</option>
+                            <option value='descen'>DESCENTENDE</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>ORDEN SALUBRE</label>
+                        <select onChange={(e)=>{ordenPunt(e)}}>
+                            <option value='defect'>POR DEFECTO</option>
+                            <option value='ascen'>ASCENDENTE</option>
+                            <option value='descen'>DESCENDENTE</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
             <Paginado recipes={recipes} cantRecipe={cantRecipePage} refresh={refresh}/>
         </div>
         )

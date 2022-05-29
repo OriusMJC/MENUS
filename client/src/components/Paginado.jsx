@@ -1,5 +1,7 @@
 import {useState} from 'react'
 import Cards from "./Cards";
+import './Style/Paginado.css'
+import Loading from './Loading'
 
 export default function Paginado({recipes,cantRecipe,refresh}){
     
@@ -9,24 +11,34 @@ export default function Paginado({recipes,cantRecipe,refresh}){
     const firstRecipe = lastRecipe - cantRecipe
     let recipePerPage = recipes.slice(firstRecipe,lastRecipe)
     const numPage = []
-    for(let i = 1; i <= cantPages; i++){
-        numPage.push(
-            <button value={i} onClick={()=>{setPage(i)}}>
-                {i}
-            </button>)
+    if(typeof recipes !== 'string'){
+        for(let i = 1; i <= cantPages; i++){
+            numPage.push(
+                <button value={i} onClick={()=>{setPage(i)}}>
+                    {i}
+                </button>)
+        }
     }
     return(
-        <div>
+        <div className='pag-container'>
+            <div className='pg-cont-butt'>
+                {numPage}
+            </div>
+            <div className='pag-cont-cards'>
            {
                 refresh && recipePerPage.length?
+                typeof recipes !== 'string'?
                 recipePerPage.map(r=>{
                     return(
                     <Cards id={r.id} image={r.image} name={r.name} nivelSalubre={r.nivelSalubre} />)
                 })
                 :
-                <h1>Cargando</h1>
+                <h2>{recipes}</h2>
+                :
+                <Loading/>
             }
-            <div>
+            </div>
+            <div className='pg-cont-butt'>
                 {numPage}
             </div>
         </div>

@@ -1,0 +1,52 @@
+:root{
+    --color-primary: #fff;
+    --color-secundary: #000;
+    --color-gray-dark: #737373;
+    --color-gray-medium: #545454;
+    --color-gray-light: #cccdcd;
+    --font-primary: 'Montserrat', sans-serif;
+}
+
+.pag-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.pag-cont-cards{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 85%;
+}
+
+.pg-cont-butt{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 50px;
+    width: 100%;
+    margin: 20px;
+}
+.pg-cont-butt button{
+    color: var(--color-primary);
+    background-color: var(--color-secundary);
+    font-size: 1.2em;
+    margin: 5px;
+    height: 40px;
+    width: 40px;
+    border: none;
+    border-radius: 50%;
+}
+.pg-cont-butt button:hover, button:focus{
+    font-size: 1.2em;
+    margin: 2.5px;
+    height: 45px;
+    width: 45px;
+    border: none;
+    border-radius: 50%;
+}
