@@ -20,14 +20,14 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING
     },
     resumenDePlato:{
-      type: DataTypes.STRING
+      type: DataTypes.STRING(1000)
     },
     nivelSalubre: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
     pasos: {
-      type: DataTypes.ARRAY(DataTypes.STRING)
+      type: DataTypes.ARRAY(DataTypes.STRING(5000))
     }
   },{
     timestamps: false

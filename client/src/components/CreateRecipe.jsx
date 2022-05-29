@@ -2,6 +2,7 @@ import { useState,useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import {createRecipe, getAllDiets} from '../actions'
 import {useDispatch,useSelector} from 'react-redux'
+import './Style/CreateRecipe.css'
 
 export default function CreateRecipe(){
     const allDiets = useSelector(store=> store.diets)
@@ -38,8 +39,8 @@ export default function CreateRecipe(){
         if(input.tipoDePlato && input.tipoDePlato.length > 30){
             error.tipoDePlato = 'Tiene que contener máximo 30 caracteres'
         }else error.tipoDePlato = null
-        if(input.resumenDePlato && input.resumenDePlato.length > 150){
-            error.resumenDePlato = 'Tiene que contener máximo 150 caracteres'
+        if(input.resumenDePlato && input.resumenDePlato.length > 1000){
+            error.resumenDePlato = 'Tiene que contener máximo 1000 caracteres'
         }else error.resumenDePlato = null
         if(input.nivelSalubre > 100 || input.nivelSalubre < 0){
             error.nivelSalubre = 'Tiene que ser entre 0 y 100'
@@ -88,6 +89,7 @@ export default function CreateRecipe(){
         error.tipoDePlato === null && error.resumenDePlato === null && 
         error.nivelSalubre === null && error.diets === null){
             dispatch(createRecipe(inputForm))
+            alert('Se ha creado la receta exitosamente')
             setInputForm({
                 name: '',
                 image: '',
@@ -132,70 +134,123 @@ export default function CreateRecipe(){
         }
         )}
     }
+    // function deletePaso(pos){
+    //     let obj = {...indexPaso}
+    //     delete obj[pos]
+    //     setIndexPaso(obj)
+    //     let pasitos = []
+    //     for(let i=0;i<cantP;i++){
+    //         pasitos.push(obj[i])
+    //     }
+    //     setCantP(cantP-1)
+    //     setInputForm({
+    //         ...inputForm,
+    //         pasos: pasitos
+    //     }
+    //     )}
+    
     return(
-        <div>
-            <Link to='/home'>Volver al home</Link>
-            <h1>Creadno Receta!</h1>
-            <form onSubmit={(e)=>{handleSubmit(e)}}>
-                <div>
-                    <label>Nombre:</label>
-                    <input 
-                        type='text' 
-                        value={inputForm.name} 
-                        name='name' 
-                        onChange={(e)=>{handleChange(e)}}
-                        required/>
-                    {error.name&& (
-                        <p>{error.name}</p>
-                    )}
+        <div id='container-createrecipe'>
+            <div id='cont-btn-home'>
+                <Link to='/home'>
+                    <button>VOLVER AL MENÚ</button>
+                </Link>
+            </div>
+            <div id='cont-title-form'>
+                <h1>Creando Receta!</h1>
+            </div>
+            <form onSubmit={(e)=>{handleSubmit(e)}} id='form-create'>
+                <div id='form-cont-left'>
+                    <div id='input-name' className='form-inputs'>
+                        <label>* Nombre:</label>
+                        <input 
+                            type='text' 
+                            value={inputForm.name} 
+                            name='name' 
+                            onChange={(e)=>{handleChange(e)}}
+                            required/>
+                        {error.name&& (
+                            <p>{error.name}</p>
+                        )}
+                    </div>
+                    <div id='input-img' className='form-inputs'>
+                        <label>imagen:</label>
+                        <input 
+                            type='text' 
+                            value={inputForm.image} 
+                            name='image' 
+                            onChange={(e)=>{handleChange(e)}}/>
+                        {error.image&& (
+                            <p>{error.image}</p>
+                        )}
+                    </div>
+                    <div id='input-tdp' className='form-inputs'>
+                        <label>Tipo de plato:</label>
+                        <input 
+                            type='text' 
+                            value={inputForm.tipoDePlato} 
+                            name='tipoDePlato' 
+                            onChange={(e)=>{handleChange(e)}}/>
+                        {error.tipoDePlato&& (
+                            <p>{error.tipoDePlato}</p>
+                        )}
+                    </div>
+                    <div id='input-nds' className='form-inputs'>
+                        <label>* Nivel de saludable:</label>
+                        <input 
+                            type='number' 
+                            value={inputForm.nivelSalubre} 
+                            name='nivelSalubre' 
+                            onChange={(e)=>{handleChange(e)}}/>
+                        {error.nivelSalubre&& (
+                            <p>{error.nivelSalubre}</p>
+                        )}
+                    </div>
+                    <div id='input-rdp' className='form-inputs'>
+                            <label>Resumen del plato:</label>
+                            <input 
+                                type='text' 
+                                value={inputForm.resumenDePlato} 
+                                name='resumenDePlato' 
+                                onChange={(e)=>{handleChange(e)}}/>
+                            {error.resumenDePlato&& (
+                                <p>{error.resumenDePlato}</p>
+                            )}
+                    </div>
+                    <div id='select-diets'  className='form-inputs'>
+                        <label>*Dietas:</label>
+                        <select onChange={(e)=>{handleSelect(e)}}>
+                            <option> -Selleciona al menos una- </option>
+                            {
+                                allDiets&&allDiets.map(d=>{
+                                    return(
+                                        <option value={d.id}>{d.name}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div id='cont-diets'>
+                        <ul>
+                        {allDiets&&allDiets.map((d)=>{
+                            if(inputForm && inputForm.diets.includes(d.id) ){
+                                return(
+                                        
+                                        <li>{d.name} <button onClick={(e)=>{deleteSelect(e,d.id)}}>X</button></li>
+                                )
+                            }
+                            return
+                        })}
+                        </ul>
+                    </div>
+                    <div id='cont-btn-submit'>
+                        <button type='submit'>CREAR RECETA</button>
+                    </div>
                 </div>
-                <div>
-                    <label>imagen:</label>
-                    <input 
-                        type='text' 
-                        value={inputForm.image} 
-                        name='image' 
-                        onChange={(e)=>{handleChange(e)}}/>
-                    {error.image&& (
-                        <p>{error.image}</p>
-                    )}
-                </div>
-                <div>
-                    <label>Tipo de plato:</label>
-                    <input 
-                        type='text' 
-                        value={inputForm.tipoDePlato} 
-                        name='tipoDePlato' 
-                        onChange={(e)=>{handleChange(e)}}/>
-                    {error.tipoDePlato&& (
-                        <p>{error.tipoDePlato}</p>
-                    )}
-                </div>
-                <div>
-                    <label>Resumen del plato:</label>
-                    <input 
-                        type='text' 
-                        value={inputForm.resumenDePlato} 
-                        name='resumenDePlato' 
-                        onChange={(e)=>{handleChange(e)}}/>
-                    {error.resumenDePlato&& (
-                        <p>{error.resumenDePlato}</p>
-                    )}
-                </div>
-                <div>
-                    <label>Nivel de saludable:</label>
-                    <input 
-                        type='number' 
-                        value={inputForm.nivelSalubre} 
-                        name='nivelSalubre' 
-                        onChange={(e)=>{handleChange(e)}}/>
-                    {error.nivelSalubre&& (
-                        <p>{error.nivelSalubre}</p>
-                    )}
-                </div>
-                <div>
+                <div id='form-cont-right'>
                     <label>Pasos para la preparacion (Max 13):</label>
-                    <button onClick={(e)=>{addPaso(e)}}>Añadir paso</button>
+                    <button onClick={()=>{addPaso()}}>Añadir paso</button>
+                    {/* <button onClick={()=>{deletePaso()}}>Eliminar paso</button> */}
                     {
                         indexPaso && inputForm.pasos.map((p,i)=>{
                             return(
@@ -203,35 +258,6 @@ export default function CreateRecipe(){
                             )
                         })
                     }
-                </div>
-                <div>
-                    <label>Dietas:</label>
-                    <select onChange={(e)=>{handleSelect(e)}}>
-                        <option> -Selleciona al menos una- </option>
-                        {
-                            allDiets&&allDiets.map(d=>{
-                                return(
-                                    <option value={d.id}>{d.name}</option>
-                                )
-                            })
-                        }
-                    </select>
-                </div>
-                <div>
-                    <ul>
-                    {allDiets&&allDiets.map((d)=>{
-                        if(inputForm && inputForm.diets.includes(d.id) ){
-                            return(
-                                    
-                                    <li>{d.name} <button onClick={(e)=>{deleteSelect(e,d.id)}}>X</button></li>
-                            )
-                        }
-                        return
-                    })}
-                    </ul>
-                </div>
-                <div>
-                    <button type='submit'>Crear Receta</button>
                 </div>
             </form>
         </div>

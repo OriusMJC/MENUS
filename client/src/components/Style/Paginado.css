@@ -42,7 +42,7 @@
     border: none;
     border-radius: 50%;
 }
-.pg-cont-butt button:hover, button:focus{
+.pg-cont-butt button:hover{
     font-size: 1.2em;
     margin: 2.5px;
     height: 45px;

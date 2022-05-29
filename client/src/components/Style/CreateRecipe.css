@@ -1,0 +1,173 @@
+:root{
+    --color-primary: #fff;
+    --color-secundary: #000;
+    --color-gray-dark: #737373;
+    --color-gray-medium: #545454;
+    --color-gray-light: #cccdcd;
+    --font-primary: 'Montserrat', sans-serif;
+}
+
+#container-createrecipe{
+    font-family: var(--font-primary);
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(#fff 23%,#000 20%);
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+/* #cont-btn-home{
+    background-color: var(--color-primary);
+} */
+
+#cont-btn-home a button{
+    font-size: 1em;
+    font-weight: bold;
+    margin: 25px;
+    height: 40px;
+    width: 200px;
+    border: none;
+    border-radius: 50px;
+}
+
+#cont-title-form{
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8vh;
+    width: 100vw;
+}
+
+#form-create{
+    background-image: url('../img/plato_comida.png');
+    background-repeat: no-repeat;
+    background-position: left top;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 80vh;
+    width: 100vw;
+}
+#form-create p{
+    color: #cc0000;
+}
+
+#form-cont-left{
+    height: 95%;
+    width: 36%;
+    margin-top: 3%;
+    margin-left: 23%;
+    padding: 10px;
+}
+
+.form-inputs{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 65px;
+    width: 100%;
+}
+.form-inputs label{
+    color: var(--color-primary);
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.form-inputs input{
+    color: var(--color-primary);
+    background-color: var(--color-secundary);
+    height: 25px;
+    width: 400px;
+    border: 2px solid var(--color-primary);
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+#select-diets select{
+    color: var(--color-primary);
+    background-color: var(--color-secundary);
+    margin-right: 50px;
+    height: 25px;
+    width: 200px;
+    border: 2px solid var(--color-primary);
+    border-radius: 15px;
+}
+
+#cont-diets{
+    color: var(--color-primary);
+    display: flex;
+    justify-content: center;
+    height: 280px;
+    width: 100%;
+}
+#cont-diets ul li button{
+    background-color: var(--color-primary);
+    height: 25px;
+    width: 25px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    padding-right: 12px;
+
+}
+
+#cont-btn-submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+}
+#cont-btn-submit button{
+    font-size: 1.2em;
+    font-weight: bold;
+    height: 40px;
+    width: 200px;
+    border: none;
+    border-radius: 25px;
+    transition: .3s;
+}
+#cont-btn-submit button:hover{
+    font-size: 1.25em;
+    height: 42px;
+    width: 205px;
+    box-shadow: 0px 5px 5px #555;
+}
+
+#form-cont-right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 95%;
+    width: 38%;
+    margin-top: 3%;
+}
+#form-cont-right label{
+    color: var(--color-primary);
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 10px;
+}
+#form-cont-right button{
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 25px;
+    transition: .3s;
+}
+#form-cont-right button:hover{
+    font-size: 1.15em;
+    padding: 5px 12px;
+    box-shadow: 0px 5px 5px #555;
+}
+#form-cont-right input{
+    color: var(--color-primary);
+    background-color: var(--color-secundary);
+    margin: 5px;
+    height: 28px;
+    width: 450px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+}
