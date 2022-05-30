@@ -29,7 +29,7 @@ export default function Card({recipe}){
             </div>
             <div className="card-line-data">
                 <p>Nivel salubre: {recipe.nivelSalubre}</p>
-                <p>Tipo de plato: {recipe.tipoDePlato}.</p>
+                <p>Tipo de plato: {recipe.tipoDePlato}</p>
                 <p>Dieta/s: {recipe.diets?.join(', ')}.</p>
             </div>
             <div className="card-cont-img-data">
@@ -42,7 +42,7 @@ export default function Card({recipe}){
                         btn? 
                         <ol>
                             {
-                                recipe.pasos? recipe.pasos.map(p=>{
+                                recipe.pasos.length? recipe.pasos.map(p=>{
                                     return(
                                         <li>{p}</li>
                                         )
