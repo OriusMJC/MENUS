@@ -8,11 +8,21 @@ import './Style/Home.css'
 
 export default function Home(){
     const dispatch = useDispatch()
-    // const allRecipes = useSelector((store)=> store.allRecipes)
     const recipes = useSelector((store)=> store.recipes)
     const diets = useSelector((store)=> store.diets)
     const [cantRecipePage, setCantRecipePage] = useState(9)
     const [refresh, setRefresh] = useState(1)
+    // const btnOpenNav = document.querySelector('#btn-open-nav')
+    // const btnCloseNav = document.querySelector('#btn-close-nav')
+    const nav = document.querySelector('.home-navbar-d')
+
+    const openNav = ()=>{
+        nav.classList.add('nav-activate')
+    }
+    const closeNav = ()=>{
+        nav.classList.remove('nav-activate')
+    }
+
     useEffect(()=>{
         dispatch(getAllRecipes())
         dispatch(getAllDiets())
@@ -48,12 +58,19 @@ export default function Home(){
                     <SearchBar/>
                     <h1>MENU'S</h1>
                     <Link to='/recipecreate'>
-                        <button>
+                        <button id='crear-receta'>
                             <h1>CREAR RECETA</h1>
                         </button>
                     </Link>
                 </div>
+                <button id='btn-open-nav' onClick={()=>{openNav()}}> ___ <br/> ___ <br/> ___ </button>
                 <div className='home-navbar-d'>
+                    <button id='btn-close-nav' onClick={()=>{closeNav()}}>X</button>
+                    <Link to='/recipecreate'>
+                        <button>
+                            <h1>CREAR RECETA</h1>
+                        </button>
+                    </Link>
                     <button onClick={(e)=>{handleClick(e)}}>
                         <h1>RECARGAR TODAS LAS RECETAS</h1>
                     </button>

@@ -171,3 +171,101 @@
     border: 2px solid #fff;
     border-radius: 10px;
 }
+
+
+@media screen and (max-width: 390px){
+    #container-createrecipe{
+        font-family: var(--font-primary);
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        width: 100vw;
+        overflow: auto;
+    }
+
+    #cont-title-form{
+        font-size: 1em;
+        padding-bottom: 10px;
+    }
+
+    #form-create{
+        background-image: none;
+        background-color: #000;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: 80vh;
+        width: 100vw;
+    }
+    /* FORM LEFT */
+    #form-cont-left{
+        background-color: #000;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 95%;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        padding-top: 50px;
+    }
+
+    .form-inputs{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        height: 100%;
+        width: 85%;
+        margin: 20px;
+    }
+
+    #select-diets{
+        background-color: #000;
+        width: 100%;
+        margin: 0;
+        padding: 25px;
+    }
+
+    #cont-diets{
+        background-color: #000;
+        color: var(--color-primary);
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: 400px;
+        width: 100%;
+        margin-bottom: -170px;
+    }
+
+    /* FORM RIGHt */
+
+    #form-cont-right{
+        background-color: #000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 115%;
+        width: 100%;
+        margin: 170px 0px;
+        padding: 10px;
+    }
+
+    #form-cont-right input{
+        color: var(--color-primary);
+        background-color: var(--color-secundary);
+        margin: 5px;
+        height: 28px;
+        width: 85%;
+        border: 2px solid #fff;
+        border-radius: 10px;
+    }
+
+    /* BUTTON CREATE */
+
+    #cont-btn-submit{
+        position:absolute;
+        bottom: 10px;
+    }
+}

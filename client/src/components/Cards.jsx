@@ -17,7 +17,6 @@ export default function Cards({id,image,name,nivelSalubre}){
             <Link to={`/recipe/${id}`}>
                 <p>Nivel salubre: {nivelSalubre}</p>
                 <div className='c-c-img' style={styleImg}>
-                    {/* <img src={image} alt={name}/> */}
                     <div>
                         <h2>{name}</h2> 
                     </div> 

@@ -50,3 +50,14 @@
     border: none;
     border-radius: 50%;
 }
+
+@media screen and (max-width: 390px){
+    .pg-cont-butt{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        height: 80px;
+        width: 100%;
+        margin: 20px;
+    }
+}

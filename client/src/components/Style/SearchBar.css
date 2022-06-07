@@ -51,3 +51,22 @@
     border: none;
     border-radius: 50px;
 }
+
+@media screen and (max-width: 390px){
+    .cont-searchbar form button{
+        margin: 0;
+        padding: 0;
+        height: 0px;
+        width: 0px;
+
+    }
+    .cont-searchbar form input{
+        background-color: var(--color-primary);
+        margin-top: 30px;
+        padding-left: 20px;
+        height: 35px;
+        width: 250px;
+        border: none;
+        border-radius: 50px;
+    }
+}

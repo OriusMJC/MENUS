@@ -34,7 +34,7 @@
     margin: 0px;
     border: none;
     border-radius: 50px;
-    height: 60px;
+    height: 50px;
     width: 150px;
     transition: .1s;
 }
@@ -43,4 +43,15 @@
     margin-bottom: -1px;
     height: 62px;
     width: 152px;
+}
+
+@media screen and (max-width: 400px){
+    #lp-container h1{
+        font-size: 5em;
+        margin: 50px;
+    }
+    #lp-container button{
+        height: 50px;
+        width: 150px;
+    }
 }

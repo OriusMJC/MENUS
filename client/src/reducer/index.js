@@ -60,9 +60,9 @@ export default function rootReducer(state = initialState,action){
             let newRecipesByPunt;
              if(action.payload === 'defect'){
                 newRecipesByPunt = state.allRecipes.map(recipe=>{
-                    let rec = []
+                    let rec
                     state.recipes.map(re=>{
-                        if(recipe.name == re.name) rec.push(re)
+                        if(recipe.name == re.name) rec = re
                     })
                     return rec
                 })
@@ -79,9 +79,9 @@ export default function rootReducer(state = initialState,action){
             let newRecipesByAlfa;
             if(action.payload === 'defect'){
                 newRecipesByAlfa = state.allRecipes.map(recipe=>{
-                    let rec = []
+                    let rec;
                     state.recipes.map(re=>{
-                        if(recipe.name == re.name) rec.push(re)
+                        if(recipe.name == re.name) rec = re
                     })
                     return rec
                 })

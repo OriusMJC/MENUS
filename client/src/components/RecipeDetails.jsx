@@ -7,14 +7,17 @@ import { getRecipesById } from "../actions";
 export default function RecipeDetails(){
     let {idRecipe} = useParams();
     const dispatch = useDispatch();
-    const recipe = useSelector(store => store.recipe);
+    let recipe = useSelector(store => store.recipe);
     useEffect(()=>{
         dispatch(getRecipesById(idRecipe))
+        return (
+            recipe = {}
+        )
     },[dispatch,idRecipe])
     return(
         <div>
             {
-                recipe? 
+                recipe.id? 
                 <Card recipe={recipe}/>
                 :
                 <h1>Cargando</h1>

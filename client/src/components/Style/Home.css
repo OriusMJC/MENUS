@@ -31,6 +31,21 @@ body{
     height: 350px;
 }
 
+#btn-open-nav{
+    width: 0px;
+    height: 0px;
+    font-size: 0px;
+    padding: 0;
+    position: absolute;
+    margin-left: -100px;
+}
+#btn-close-nav{
+    width: 0px;
+    height: 0px;
+    font-size: 0px;
+    padding: 0;
+}
+
 .home-navbar-up{
     color: var(--color-primary);
     display: flex;
@@ -67,6 +82,18 @@ body{
     height: 60%;
     width: 100%;
 }
+
+.home-navbar-d a button{
+    padding: 0;
+    margin: 0;
+    height: 0px;
+    width: 0px;
+}
+.home-navbar-d a button:hover{
+    height: 0px;
+    width: 0px;
+}
+
 .home-navbar-d select{
     color:var(--color-primary);
     background-color: var(--color-secundary);
@@ -87,6 +114,7 @@ body{
     height: 50px;
     width: 300px;
     margin: 30px -25px;
+    margin-left: -100px;
     transition: .3s;
 }
 .home-navbar-d button:hover{
@@ -95,6 +123,7 @@ body{
     height: 52px;
     width: 304px;
     margin: 29px -27px;
+    margin-left: -100px;
 }
 .home-navbar-d div{
     color: var(--color-primary);
@@ -106,4 +135,110 @@ body{
 }
 .home-navbar-d div label{
     height: 30px;
+}
+
+
+@media screen and (max-width: 1390px){
+    .home-navbar-d{
+        display: flex;
+        height: 100vh;
+        width: 0px;
+        z-index: 100;
+    }
+    /* .home-navbar-d div{
+        display: flex;
+        height: 100px;
+        width: 0px;
+    } */
+    .home-navbar-d button{
+        margin-left: -1000px;
+    }
+    .home-navbar-d select{
+        margin-left: -1000px;
+    }
+
+    #btn-open-nav{
+        font-size: .5em;
+        font-weight: bold;
+        margin-left: 50px;
+        padding-bottom: 10px;
+        width: 40px;
+        height: 40px;
+        border: none;
+        border-radius: 10px;
+    }
+
+    #btn-close-nav{
+        width: 0px;
+        height: 0px;
+    }
+    .nav-activate #btn-close-nav{
+        width: 35px;
+        height: 35px;
+        font-size: 1em;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .nav-activate{
+        background-color: var(--color-secundary);
+        opacity: .97;
+        position: absolute;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        width: 350px;
+    }
+
+    .nav-activate button{
+        margin: 0;
+    }
+    .nav-activate button:hover{
+        margin: 0;
+    }
+    .nav-activate select{
+        margin-left: 0px;
+    }
+
+}
+
+
+@media screen and (max-width: 390px){
+    #crear-receta{
+        padding: 0;
+        margin: 0;
+        height: 0px;
+        width: 0px;
+    }
+    
+    #btn-open-nav{
+        margin-top: -150px;
+        margin-left: 25px;
+    }
+    
+    .home-navbar-up{
+        margin-top: 30px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .home-navbar-up h1{
+        margin: 15px;
+        margin-top: -20px;
+    }
+    
+    .home-navbar-up a button{
+        padding-top: 30px;
+        height: 40px;
+        width: 200px;
+    }
+    .nav-activate a button{
+        background-color: var(--color-primary);
+        padding: 0;
+        height: 35px;
+        width: 200px;
+        border-radius: 50px;
+        border: none;
+    }
 }

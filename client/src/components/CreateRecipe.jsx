@@ -30,7 +30,7 @@ export default function CreateRecipe(){
 
     function validate(input){
         let error = {}
-        if(input.name.length > 0 && !input.name.match(/^[a-zA-Z_]+( [a-zA-Z_]+)*$/)){
+        if(input.name.length >= 0 && !input.name.match(/^[a-zA-Z_]+( [a-zA-Z_]+)*$/)){
             error.name = 'Solo se permiten letras y sin espacios al final!'
         }else error.name = null
         if(input.image.length > 0 && !input.image.match(/^(ftp|http|https):\/\/[^ "]+$/)){
@@ -167,8 +167,7 @@ export default function CreateRecipe(){
                             type='text' 
                             value={inputForm.name} 
                             name='name' 
-                            onChange={(e)=>{handleChange(e)}}
-                            required/>
+                            onChange={(e)=>{handleChange(e)}}/>
                         {error.name&& (
                             <p>{error.name}</p>
                         )}

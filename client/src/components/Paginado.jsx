@@ -19,6 +19,11 @@ export default function Paginado({recipes,cantRecipe,refresh}){
                 </button>)
         }
     }
+
+    if(page !== 1 && page > numPage.length){
+        setPage(1)
+    }
+
     return(
         <div className='pag-container'>
             <div className='pg-cont-butt'>
