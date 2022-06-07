@@ -35,7 +35,7 @@ export default function Paginado({recipes,cantRecipe,refresh}){
                 typeof recipes !== 'string'?
                 recipePerPage.map(r=>{
                     return(
-                    <Cards id={r.id} image={r.image} name={r.name} nivelSalubre={r.nivelSalubre} />)
+                    <Cards id={r && r.id} image={r && r.image} name={r && r.name} nivelSalubre={r && r.nivelSalubre} />)
                 })
                 :
                 <h2>{recipes}</h2>

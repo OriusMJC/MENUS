@@ -19,7 +19,7 @@ export default function Cards({id,image,name,nivelSalubre}){
         <div key={id} className='cards-container'>
             <p>Nivel salubre: {nivelSalubre}
             {
-                id.length > 10?
+                id && id.length > 10?
                 <button onClick={()=>{dispatch(deleteRecipe(id))}}>X</button>
                 :
                 <></>
