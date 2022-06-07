@@ -31,12 +31,24 @@
 /* .cards-container a:link,a:visited,a:active{
     text-decoration: none;
 } */
-.cards-container a p{
+.cards-container p{
     color: var(--color-gray-medium);
     font-size: 1.5em;
-    margin-top: 0px;
-    margin-left: -100px;
+    margin-top: 10px;
+    margin-left: 20px;
     height: 5%;
+}
+.cards-container p button{
+    margin-top: 0px;
+    margin-left: 90px;
+    height: 25px;
+    width: 25px;
+    border: none;
+    border-radius: 50%;
+    transition: .3s;
+}
+.cards-container p button:hover{
+    background-color: red;
 }
 .cards-container a h2{
 

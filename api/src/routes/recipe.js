@@ -22,4 +22,14 @@ router.post('/',async(req,res,next)=>{
     }
 })
 
+router.delete('/:idReceta', (req, res, next) => {
+    try {
+        const { idReceta } = req.params
+        Recipe.destroy({ where: {id: idReceta} })
+        res.send('Deleted ' + idReceta)
+    } catch(error) {
+        next(error)
+    }
+})
+
 module.exports = router;

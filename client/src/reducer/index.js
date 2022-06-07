@@ -45,6 +45,12 @@ export default function rootReducer(state = initialState,action){
                 ...state,
                 recipe: action.payload
             }
+        case 'DEL_RECIPE':
+            return {
+                ...state,
+                allRecipes: state.allRecipes.filter(rec => rec.id != action.payload),
+                recipes: state.recipes.filter(rec => rec.id != action.payload)
+            }
         case 'FILTER_BY_DIETS':
             let newRecipesByDiet;
             if(action.payload === 'all'){
