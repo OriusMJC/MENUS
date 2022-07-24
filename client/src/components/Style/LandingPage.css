@@ -6,9 +6,6 @@
     --color-gray-light: #cccdcd;
     --font-primary: 'Montserrat', sans-serif;
 }
-input{
-    margin-bottom: 200px;
-}
 #lp-container{
     background-color: var(--color-secundary);
     display: flex;
